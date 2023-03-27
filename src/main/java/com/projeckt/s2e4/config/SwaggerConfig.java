@@ -24,15 +24,15 @@ public class SwaggerConfig {
                 .useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.selab.todo"))
+                .apis(RequestHandlerSelectors.basePackage("com.projeckt.s2e4"))
                 .paths(PathSelectors.regex("/api/.*"))
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Selab Diary api info")
-                .description("SE Diary API")
+                .title("S2E4 api info")
+                .description("Basic API")
                 .version("1.0.0")
                 .build();
     }
