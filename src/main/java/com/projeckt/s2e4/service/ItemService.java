@@ -1,5 +1,6 @@
 package com.projeckt.s2e4.service;
 
+import com.projeckt.s2e4.dto.item.request.ItemRegisterRequest;
 import com.projeckt.s2e4.dto.item.request.ItemUpdateRequest;
 import com.projeckt.s2e4.dto.item.response.ItemResponse;
 import com.projeckt.s2e4.entity.Item;
@@ -17,7 +18,7 @@ public class ItemService {
     private final ItemRepository itemRepository;
 
     @Transactional
-    public ItemResponse register(ItemUpdateRequest request){
+    public ItemResponse register(ItemRegisterRequest request){
         Item item = new Item(
                 request.getItemName(),
                 request.getPrice(),
