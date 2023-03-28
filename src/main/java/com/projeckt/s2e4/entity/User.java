@@ -23,7 +23,7 @@ public class User {
     @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "login_id")
+    @Column(name = "login_id", unique = true)
     private String loginId;
 
     @Column(name = "login_password")
@@ -39,4 +39,18 @@ public class User {
     @Column(name = "modified_at")
     @LastModifiedDate
     private LocalDateTime modifiedAt;
+
+    public User(String userName, String loginId, String loginPassword, Long money) {
+        this.userName = userName;
+        this.loginId = loginId;
+        this.loginPassword = loginPassword;
+        this.money = money;
+    }
+
+    public void update(String userName, String loginId, String loginPassword, Long money){
+        this.userName = userName;
+        this.loginId = loginId;
+        this.loginPassword = loginPassword;
+        this.money = money;
+    }
 }

@@ -38,4 +38,16 @@ public class Item {
     @LastModifiedDate
     private LocalDateTime modifiedAt;
 
+    public Item(String itemName, Long price, Long inventory) {
+        this.itemName = itemName;
+        this.price = price;
+        this.inventory = inventory;
+    }
+
+    public void update(String itemName, Long price, Long inventory){
+        this.itemName = itemName;
+        this.price = price;
+        this.inventory = inventory;
+    }
+
 }

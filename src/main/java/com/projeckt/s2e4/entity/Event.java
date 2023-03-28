@@ -40,4 +40,18 @@ public class Event {
     @Column(name = "modified_at")
     @LastModifiedDate
     private LocalDateTime modifiedAt;
+
+    public Event(String eventName, Long discountRate, LocalDate startAt, LocalDate endAt) {
+        this.eventName = eventName;
+        this.discountRate = discountRate;
+        this.startAt = startAt;
+        this.endAt = endAt;
+    }
+
+    public void update(String eventName, Long discountRate, LocalDate startAt, LocalDate endAt){
+        this.eventName = eventName;
+        this.discountRate = discountRate;
+        this.startAt = startAt;
+        this.endAt = endAt;
+    }
 }
