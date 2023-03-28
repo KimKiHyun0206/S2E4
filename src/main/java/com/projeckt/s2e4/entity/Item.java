@@ -4,8 +4,11 @@ package com.projeckt.s2e4.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity(name = "item")
 @Getter
@@ -26,4 +29,13 @@ public class Item {
 
     @Column(name = "inventory")
     private Long inventory;
+
+    @Column(name = "created_at")
+    @CreatedDate
+    private LocalDateTime createdAt;
+
+    @Column(name = "modified_at")
+    @LastModifiedDate
+    private LocalDateTime modifiedAt;
+
 }

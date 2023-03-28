@@ -3,9 +3,12 @@ package com.projeckt.s2e4.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity(name = "event")
 @Getter
@@ -29,4 +32,12 @@ public class Event {
 
     @Column(name = "end_at")
     private LocalDate endAt;
+
+    @Column(name = "created_at")
+    @CreatedDate
+    private LocalDateTime createdAt;
+
+    @Column(name = "modified_at")
+    @LastModifiedDate
+    private LocalDateTime modifiedAt;
 }
