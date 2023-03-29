@@ -57,6 +57,19 @@ public class ItemService {
         List<ItemResponse> filtered = items
                 .filter(u->u.getPrice()>= firstPrice)
                 .filter(i->i.getPrice()<=endPrice).toList();
+
+        return makePage(filtered);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ItemResponse> getItemInventoryZero(Pageable pageable){
+        Page<ItemResponse> items = itemRepository.findAll(pageable)
+                .map(ItemResponse::from);
+
+        List<ItemResponse> filtered = items
+                .filter(i->i.getInventory()==0)
+                .toList();
+
         return makePage(filtered);
     }
 
