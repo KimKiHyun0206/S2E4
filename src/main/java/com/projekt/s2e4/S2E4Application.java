@@ -1,4 +1,4 @@
-package com.projeckt.s2e4;
+package com.projekt.s2e4;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

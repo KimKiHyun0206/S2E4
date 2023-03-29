@@ -1,4 +1,4 @@
-package com.projeckt.s2e4;
+package com.projekt.s2e4;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
