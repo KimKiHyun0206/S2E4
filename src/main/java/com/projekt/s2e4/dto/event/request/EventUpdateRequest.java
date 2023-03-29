@@ -10,4 +10,5 @@ public class EventUpdateRequest {
     private Long discountRate;
     private LocalDate startAt;
     private LocalDate endAt;
+    private Boolean status;
 }
