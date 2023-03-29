@@ -4,4 +4,4 @@
 
 <br>
 
-[Swagger Test](http://localhost:8080/swagger-ui/index.html#/TODO%20API)
+[Swagger Test](http://localhost:8080/swagger-ui/index.html#)
