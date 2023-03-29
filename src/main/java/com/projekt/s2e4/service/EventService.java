@@ -8,6 +8,8 @@ import com.projekt.s2e4.exception.S2E4Exception;
 import com.projekt.s2e4.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,6 +43,12 @@ public class EventService {
         log.info("Event 조회했습니다. {}", event.getId());
 
         return EventResponse.from(event);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<EventResponse> getAll(Pageable pageable){
+        return eventRepository.findAll(pageable)
+                .map(EventResponse::from);
     }
 
     @Transactional

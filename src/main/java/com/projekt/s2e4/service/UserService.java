@@ -8,6 +8,8 @@ import com.projekt.s2e4.exception.S2E4Exception;
 import com.projekt.s2e4.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,6 +43,12 @@ public class UserService {
         log.info("User 조회했습니다. {}", user.getId());
 
         return UserResponse.from(user);
+    }
+
+    @Transactional
+    public Page<UserResponse> getAll(Pageable pageable){
+        return userRepository.findAll(pageable)
+                .map(UserResponse::from);
     }
 
     @Transactional

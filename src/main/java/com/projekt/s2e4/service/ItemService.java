@@ -8,6 +8,8 @@ import com.projekt.s2e4.exception.S2E4Exception;
 import com.projekt.s2e4.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +42,12 @@ public class ItemService {
         log.info("Item 조회했습니다. {}", item.getId());
 
         return ItemResponse.from(item);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ItemResponse> getAll(Pageable pageable){
+        return itemRepository.findAll(pageable)
+                .map(ItemResponse::from);
     }
 
     @Transactional
