@@ -25,7 +25,8 @@ public class UserService {
                 request.getUserName(),
                 request.getLoginId(),
                 request.getLoginPassword(),
-                request.getMoney()
+                request.getMoney(),
+                request.getGrade()
         );
 
         User savedUser = userRepository.save(user);
@@ -60,7 +61,8 @@ public class UserService {
                 request.getUserName(),
                 request.getLoginId(),
                 request.getLoginPassword(),
-                request.getMoney()
+                request.getMoney(),
+                request.getGrade()
         );
 
         log.info("User 수정했습니다. {}", user.getId());
