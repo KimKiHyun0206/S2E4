@@ -41,3 +41,7 @@
 1. 시간 지키기
 2. 코드 깔끔하게 유지하기
 3. 모르면 질문하기
+
+
+# 참조
+1. [Java Specification](https://groti.tistory.com/49)
