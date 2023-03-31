@@ -1,0 +1,22 @@
+<web-app>
+  <display-name>Web Application</display-name>
+
+  <web-app>
+    <display-name>Web Application</display-name>
+
+    <listener>
+      <listener-class>com.projekt.s2e4.controller.servlet.UserListener</listener-class>
+    </listener>
+    <servlet>
+      <servlet-name>user</servlet-name>
+      <servlet-class>com.projekt.s2e4.controller.servlet.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>user</servlet-name>
+      <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+  </web-app>
+
+
+</web-app>
