@@ -3,15 +3,21 @@ package com.projekt.s2e4.service;
 import com.projekt.s2e4.dto.event.request.EventRegisterRequest;
 import com.projekt.s2e4.dto.event.request.EventUpdateRequest;
 import com.projekt.s2e4.dto.event.response.EventResponse;
+import com.projekt.s2e4.dto.user.response.UserResponse;
 import com.projekt.s2e4.entity.Event;
 import com.projekt.s2e4.exception.S2E4Exception;
 import com.projekt.s2e4.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -46,6 +52,15 @@ public class EventService {
     }
 
     @Transactional(readOnly = true)
+    public Page<EventResponse> getByStatus(Pageable pageable, boolean isProcess){
+        Page<EventResponse> eventResponses = eventRepository.findAll(pageable)
+                .map(EventResponse::from);
+        List<EventResponse> filtered = eventResponses
+                .filter(e->e.getStatus()==isProcess).toList();
+        return makePage(filtered);
+    }
+
+    @Transactional(readOnly = true)
     public Page<EventResponse> getAll(Pageable pageable){
         return eventRepository.findAll(pageable)
                 .map(EventResponse::from);
@@ -76,5 +91,12 @@ public class EventService {
         }else {
             log.info("Event 정보를 찾을 수 없습니다. {}", id);
         }
+    }
+
+    private PageImpl<EventResponse> makePage(List<EventResponse> process) {
+        PageRequest pageRequest = PageRequest.of(0, 10);
+        int start = (int) pageRequest.getOffset();
+        int end = Math.min((start + pageRequest.getPageSize()), process.size());
+        return new PageImpl<>(process.subList(start, end), pageRequest, process.size());
     }
 }

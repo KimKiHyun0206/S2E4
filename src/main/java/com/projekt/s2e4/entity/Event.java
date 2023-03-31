@@ -41,11 +41,15 @@ public class Event {
     @LastModifiedDate
     private LocalDateTime modifiedAt;
 
+    @Column(name = "process_now")
+    private Boolean status;
+
     public Event(String eventName, Long discountRate, LocalDate startAt, LocalDate endAt) {
         this.eventName = eventName;
         this.discountRate = discountRate;
         this.startAt = startAt;
         this.endAt = endAt;
+        this.status = true;
     }
 
     public void update(String eventName, Long discountRate, LocalDate startAt, LocalDate endAt){
@@ -53,5 +57,9 @@ public class Event {
         this.discountRate = discountRate;
         this.startAt = startAt;
         this.endAt = endAt;
+    }
+
+    public void endEvent(){
+        this.status = false;
     }
 }

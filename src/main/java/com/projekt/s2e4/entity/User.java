@@ -1,5 +1,6 @@
 package com.projekt.s2e4.entity;
 
+import com.projekt.s2e4.model.Grade;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +33,10 @@ public class User {
     @Column(name = "money")
     private Long money;
 
+    @Column(name = "grade")
+    @Enumerated(EnumType.ORDINAL)
+    private Grade grade;
+
     @Column(name = "created_at")
     @CreatedDate
     private LocalDateTime createdAt;
@@ -40,17 +45,19 @@ public class User {
     @LastModifiedDate
     private LocalDateTime modifiedAt;
 
-    public User(String userName, String loginId, String loginPassword, Long money) {
+    public User(String userName, String loginId, String loginPassword, Long money, Grade grade) {
         this.userName = userName;
         this.loginId = loginId;
         this.loginPassword = loginPassword;
         this.money = money;
+        this.grade = grade;
     }
 
-    public void update(String userName, String loginId, String loginPassword, Long money){
+    public void update(String userName, String loginId, String loginPassword, Long money, Grade grade){
         this.userName = userName;
         this.loginId = loginId;
         this.loginPassword = loginPassword;
         this.money = money;
+        this.grade = grade;
     }
 }

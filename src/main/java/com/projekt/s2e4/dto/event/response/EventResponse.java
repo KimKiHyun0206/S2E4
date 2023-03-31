@@ -17,6 +17,7 @@ public class EventResponse {
     private LocalDate endAt;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
+    private Boolean status;
 
     public static EventResponse from(Event event){
         return new EventResponse(
@@ -26,7 +27,8 @@ public class EventResponse {
                 event.getStartAt(),
                 event.getEndAt(),
                 event.getCreatedAt(),
-                event.getModifiedAt()
+                event.getModifiedAt(),
+                event.getStatus()
         );
     }
 }

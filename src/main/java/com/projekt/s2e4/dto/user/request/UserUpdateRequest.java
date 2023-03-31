@@ -1,5 +1,6 @@
 package com.projekt.s2e4.dto.user.request;
 
+import com.projekt.s2e4.model.Grade;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -12,4 +13,5 @@ public class UserUpdateRequest {
     private Long money;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
+    private Grade grade;
 }
