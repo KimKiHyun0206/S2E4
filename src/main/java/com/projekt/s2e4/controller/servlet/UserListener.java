@@ -12,12 +12,12 @@ public class UserListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        log.info("User Context Initialized");
+        log.info("[System] User Context Initialized");
         sce.getServletContext().setAttribute("user", "user");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        log.info("User Context Destroyed");
+        log.info("[System] User Context Destroyed");
     }
 }

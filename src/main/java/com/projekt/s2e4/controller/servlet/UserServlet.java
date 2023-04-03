@@ -26,11 +26,11 @@ public class UserServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        log.info("User Servlet Destroy");
+        log.info("[System] User Servlet Destroy");
     }
 
     @Override
     public void init() {
-        log.info("User Servlet Init");
+        log.info("[System] User Servlet Init");
     }
 }

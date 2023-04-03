@@ -36,7 +36,7 @@ public class EventService {
 
         Event savedEvent =  eventRepository.save(event);
 
-        log.info("Event 등록했습니다. {}", event.getId());
+        log.info("[System] Event 등록했습니다. {}", event.getId());
 
         return EventResponse.from(event);
     }
@@ -46,7 +46,7 @@ public class EventService {
         Event event = eventRepository.findById(id)
                 .orElseThrow(S2E4Exception::new);
 
-        log.info("Event 조회했습니다. {}", event.getId());
+        log.info("[System] Event 조회했습니다. {}", event.getId());
 
         return EventResponse.from(event);
     }
@@ -78,7 +78,7 @@ public class EventService {
                 request.getEndAt()
         );
 
-        log.info("Event 수정했습니다. {}", event.getId());
+        log.info("[System] Event 수정했습니다. {}", event.getId());
 
         return EventResponse.from(event);
     }
@@ -87,9 +87,9 @@ public class EventService {
     public void delete(Long id){
         if(eventRepository.existsById(id)){
             eventRepository.deleteById(id);
-            log.info("Event 삭제했습니다. {}", id);
+            log.info("[System] Event 삭제했습니다. {}", id);
         }else {
-            log.info("Event 정보를 찾을 수 없습니다. {}", id);
+            log.info("[System] Event 정보를 찾을 수 없습니다. {}", id);
         }
     }
 

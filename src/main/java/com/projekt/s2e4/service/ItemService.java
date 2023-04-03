@@ -34,7 +34,7 @@ public class ItemService {
 
         Item savedItem = itemRepository.save(item);
 
-        log.info("Item 등록했습니다. {}", item.getId());
+        log.info("[System] Item 등록했습니다. {}", item.getId());
 
         return ItemResponse.from(item);
     }
@@ -44,7 +44,7 @@ public class ItemService {
         Item item = itemRepository.findById(id)
                 .orElseThrow(S2E4Exception::new);
 
-        log.info("Item 조회했습니다. {}", item.getId());
+        log.info("[System] Item 조회했습니다. {}", item.getId());
 
         return ItemResponse.from(item);
     }
@@ -90,7 +90,7 @@ public class ItemService {
                 request.getInventory()
         );
 
-        log.info("Item 수정했습니다. {}", item.getId());
+        log.info("[System] Item 수정했습니다. {}", item.getId());
 
         return ItemResponse.from(item);
     }
@@ -99,9 +99,9 @@ public class ItemService {
     public void delete(Long id){
         if(itemRepository.existsById(id)){
             itemRepository.deleteById(id);
-            log.info("Item 삭제했습니다. {}", id);
+            log.info("[System] Item 삭제했습니다. {}", id);
         }else {
-            log.info("Item 정보를 찾을 수 없습니다. {}", id);
+            log.info("[System] Item 정보를 찾을 수 없습니다. {}", id);
         }
     }
 
