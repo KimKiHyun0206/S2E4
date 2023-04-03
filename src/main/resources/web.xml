@@ -12,8 +12,32 @@
       <servlet-class>com.projekt.s2e4.controller.servlet.user.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-      <servlet-name>user</servlet-name>
+      <servlet-name>userServlet</servlet-name>
       <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+      <listener-class>com.projekt.s2e4.controller.servlet.event.EventListener</listener-class>
+    </listener>
+    <servlet>
+      <servlet-name>user</servlet-name>
+      <servlet-class>com.projekt.s2e4.controller.servlet.event.EventServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>eventServlet</servlet-name>
+      <url-pattern>/event</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+      <listener-class>com.projekt.s2e4.controller.servlet.item.ItemListener</listener-class>
+    </listener>
+    <servlet>
+      <servlet-name>user</servlet-name>
+      <servlet-class>com.projekt.s2e4.controller.servlet.item.ItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>itemServlet</servlet-name>
+      <url-pattern>/item</url-pattern>
     </servlet-mapping>
 
   </web-app>
