@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-import javax.servlet.annotation.WebServlet;
 
 @Slf4j
 @WebListener
