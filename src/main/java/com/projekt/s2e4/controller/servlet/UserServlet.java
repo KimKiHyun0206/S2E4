@@ -10,11 +10,11 @@ import java.io.IOException;
 
 
 @Slf4j
-@WebServlet
+@WebServlet(name = "userServlet", urlPatterns = "/user")
 public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        log.info("User do get");
+        log.info("[System] User do get");
         resp.getWriter().println("<html>");
         resp.getWriter().println("<header>");
         resp.getWriter().println("</header>");
