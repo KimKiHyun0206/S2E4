@@ -1,4 +1,4 @@
-package com.projekt.s2e4.controller.servlet;
+package com.projekt.s2e4.controller.servlet.user;
 
 import lombok.extern.slf4j.Slf4j;
 

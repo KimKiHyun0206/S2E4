@@ -5,11 +5,11 @@
     <display-name>Web Application</display-name>
 
     <listener>
-      <listener-class>com.projekt.s2e4.controller.servlet.UserListener</listener-class>
+      <listener-class>com.projekt.s2e4.controller.servlet.user.UserListener</listener-class>
     </listener>
     <servlet>
       <servlet-name>user</servlet-name>
-      <servlet-class>com.projekt.s2e4.controller.servlet.UserServlet</servlet-class>
+      <servlet-class>com.projekt.s2e4.controller.servlet.user.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
       <servlet-name>user</servlet-name>
