@@ -11,7 +11,5 @@ public class UserUpdateRequest {
     private String loginId;
     private String loginPassword;
     private Long money;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
     private Grade grade;
 }
