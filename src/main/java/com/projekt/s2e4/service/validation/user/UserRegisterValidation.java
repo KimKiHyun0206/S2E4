@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
 public class UserRegisterValidation {
     private final UserRepository userRepository;
     public boolean validation(UserRegisterRequest request) {
-
-
+        return userNameValidation(request.getUserName());
     }
 
     private boolean userNameValidation(String userName) {
         boolean isLengthUnderEight = userName.length() <= 8;
         boolean isOnlyEnglish = userName.equals("^[a-zA-Z]*$");
-        boolean isNotDuplicateOtherUser = userName.
+
+        return isLengthUnderEight & isOnlyEnglish;
     }
 
 }
