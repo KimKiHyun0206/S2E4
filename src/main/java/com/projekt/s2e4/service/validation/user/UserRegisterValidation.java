@@ -31,10 +31,8 @@ public class UserRegisterValidation {
     private boolean isNotDuplicateUserName(String userName) {
         List<String> userNames = getUsernamesFromRepository();
 
-        boolean returnValue = true;
-
-        for (int i = 0; i < userNames.size(); i++) {
-            if (userNames.get(i).equals(userName)) return false;
+        for (String name : userNames) {
+            if (name.equals(userName)) return false;
         }
         return true;
     }
