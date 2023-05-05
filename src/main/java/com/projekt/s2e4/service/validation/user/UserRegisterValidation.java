@@ -23,9 +23,10 @@ public class UserRegisterValidation {
     private boolean userNameValidation(String userName) {
         boolean isLengthUnderEight = userName.length() <= 8;
         boolean isOnlyEnglish = userName.equals("^[a-zA-Z]*$");
+        boolean isNotDuplicate = isNotDuplicateUserName(userName);
 
 
-        return isLengthUnderEight & isOnlyEnglish;
+        return isLengthUnderEight & isOnlyEnglish & isNotDuplicate;
     }
 
     private boolean isNotDuplicateUserName(String userName) {
